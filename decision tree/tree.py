@@ -174,7 +174,8 @@ if __name__ == '__main__':
         predict = classify(test_data[i], tree)
         if predict == test_label[i]:
             true_count1 += 1
-    print("正确分类数量:{}".format(true_count1))
+    true_p1 = true_count1 / 50
+    print("正确分类数量:{}".format(true_count1),"正确分类率：{}".format(true_p1))
 
     mpl.rcParams['font.sans-serif'] = ['SimHei']  # 指定默认字体
     mpl.rcParams['axes.unicode_minus'] = False  # 解决保存图像时负号'-'显示为方块的问题
@@ -188,7 +189,8 @@ if __name__ == '__main__':
         predict = classify(test_data[i], tree)
         if predict == test_label[i]:
             true_count2 += 1
-    print("剪枝后正确分类数量:{}".format(true_count2))
+    true_p2 = true_count2 / 50
+    print("剪枝后正确分类数量:{}".format(true_count2),"剪枝后正确分类率：{}".format(true_p2))
 
     treePlotter.createPlot(b, 4)
     plt.show()
